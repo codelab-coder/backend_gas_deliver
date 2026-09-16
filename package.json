@@ -1,23 +1,19 @@
-name: app_entregas
-description: Aplicativo de entregas, clientes e telemarketing.
-publish_to: 'none'
-version: 1.0.0+1
-
-environment:
-  sdk: '>=3.4.0 <4.0.0'
-  flutter: '>=3.22.0'
-
-dependencies:
-  flutter:
-    sdk: flutter
-  cupertino_icons: ^1.0.8
-  http: ^1.2.2
-  shared_preferences: ^2.3.2
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^4.0.0
-
-flutter:
-  uses-material-design: true
+{
+  "name": "api-entregas",
+  "version": "1.0.0",
+  "description": "API do App Entregas: autenticação, clientes, entregas e telemarketing.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
