@@ -154,27 +154,29 @@ function semear() {
       id: novoId(),
       clienteId: banco.clientes[0].id,
       clienteNome: banco.clientes[0].nome,
-      produto: 'Farinha de trigo 25kg',
+      produto: 'Botijão de gás P45',
       quantidade: 4,
-      valor: 92.5,
+      valor: 210.0,
       status: 'entregue',
       criadaEm: diasAtras(2),
       entregueEm: diasAtras(2),
       observacao: '',
       entregadorNome: 'João Ribeiro',
+      vasilhameDevolvido: true,
     },
     {
       id: novoId(),
       clienteId: banco.clientes[2].id,
       clienteNome: banco.clientes[2].nome,
-      produto: 'Café torrado 1kg',
-      quantidade: 12,
-      valor: 34.9,
+      produto: 'Botijão de gás P13',
+      quantidade: 3,
+      valor: 115.0,
       status: 'pendente',
       criadaEm: new Date().toISOString(),
       entregueEm: null,
       observacao: '',
       entregadorNome: 'João Ribeiro',
+      vasilhameDevolvido: false,
     },
   ];
 
@@ -476,6 +478,7 @@ app.post(
       observacao: texto(req.body.observacao),
       entregadorId: req.usuario.id,
       entregadorNome: texto(req.body.entregadorNome, req.usuario.nome),
+      vasilhameDevolvido: Boolean(req.body.vasilhameDevolvido),
     };
 
     banco.entregas.push(entrega);
@@ -521,6 +524,9 @@ app.patch(
     }
     if (req.body.observacao !== undefined) {
       entrega.observacao = texto(req.body.observacao);
+    }
+    if (req.body.vasilhameDevolvido !== undefined) {
+      entrega.vasilhameDevolvido = Boolean(req.body.vasilhameDevolvido);
     }
 
     salvar();
