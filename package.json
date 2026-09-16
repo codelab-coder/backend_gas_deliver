@@ -1,5 +1,5 @@
 {
-  "name": "api-entregas",
+  "name": "entregas",
   "version": "1.0.0",
   "description": "API do App Entregas: autenticação, clientes, entregas e telemarketing.",
   "main": "index.js",
